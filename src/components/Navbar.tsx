@@ -6,7 +6,7 @@ export default function Navbar() {
   return (
     <div className="navbar">
       <h3 div className="navbar-title">
-        GrowwStonks <AiOutlineStock />{" "}
+        GrowwStocks <AiOutlineStock />{" "}
       </h3>
       <SearchBar />
     </div>

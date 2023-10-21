@@ -1,0 +1,14 @@
+.tab-heading{
+    display: flex;
+}
+.tabs{
+    opacity: 0.7;
+    margin-right: 20px;
+}
+.tabs:hover{
+    cursor: pointer;
+}
+.active{
+    border-bottom: 3px solid #96591b;
+    opacity: 1;
+}
