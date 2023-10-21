@@ -1,0 +1,11 @@
+.navbar{
+    display: flex;
+    background-color: #96591b;
+    color: #FAF0E6;
+    align-items: center;
+    justify-content: space-around;
+}
+.navbar-title{
+    display: flex;
+    align-items: center;
+}
