@@ -2,10 +2,11 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { update } from "../redux/tabs";
 import Tabs from "../components/Tabs";
-import { getGainersAndLosers } from "../utils/getGainersAndLosers";
+import { getGainersAndLosers } from "../utils";
 import { ImSpinner } from "react-icons/im";
 import "../styles/Tabs.css";
 import "../styles/Explore.css";
+import Card from "../components/Card";
 
 export default function Explore() {
   const [topGainers, setTopGainers] = useState<any>([]);
@@ -46,11 +47,13 @@ export default function Explore() {
           <div className="gainers-list">
             {topGainers.map((gainer: any) => {
               return (
-                <div className="gainer" key={gainer.ticker}>
-                  <p>{gainer.ticker}</p>
-                  <p>{gainer.price}</p>
-                  <p>{gainer.change_amount}</p>
-                </div>
+                <Card
+                  type="gain"
+                  title={gainer.ticker}
+                  price={gainer.price}
+                  changeAmount={gainer.change_amount}
+                  changePercentage={gainer.change_percentage}
+                />
               );
             })}
           </div>
@@ -64,11 +67,13 @@ export default function Explore() {
           <div className="losers-list">
             {topLosers.map((loser: any) => {
               return (
-                <div className="loser" key={loser.ticker}>
-                  <p>{loser.ticker}</p>
-                  <p>{loser.price}</p>
-                  <p>{loser.change_amount}</p>
-                </div>
+                <Card
+                  type="loss"
+                  title={loser.ticker}
+                  price={loser.price}
+                  changeAmount={loser.change_amount}
+                  changePercentage={loser.change_percentage}
+                />
               );
             })}
           </div>

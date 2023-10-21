@@ -23,3 +23,32 @@ export async function getGainersAndLosers() {
   const { top_gainers, top_losers } = await getData(urlSearchParams);
   return { top_gainers, top_losers };
 }
+
+/**
+ *
+ * @param {string} symbol
+ * @returns {data}
+ */
+export async function getCompanyOverview(symbol: string) {
+  const urlSearchParams = new URLSearchParams({
+    function: "OVERVIEW",
+    symbol,
+  });
+  const data = await getData(urlSearchParams);
+  return data;
+}
+
+/**
+ *
+ * @param {string} keywords
+ * @returns {data}
+ */
+
+export async function getSearchResults(keywords: string) {
+  const urlSearchParams = new URLSearchParams({
+    function: "SYMBOL_SEARCH",
+    keywords,
+  });
+  const data = await getData(urlSearchParams);
+  return data.bestMatches;
+}

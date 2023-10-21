@@ -2,3 +2,9 @@
     margin:70px;
     padding-left: 10%;
 }
+
+.gainers-list, .losers-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
