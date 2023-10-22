@@ -4,13 +4,16 @@ import { update } from "../redux/tabs";
 import Tabs from "../components/Tabs";
 import { getGainersAndLosers } from "../utils";
 import { ImSpinner } from "react-icons/im";
+import Card from "../components/Card";
+import { useNavigate } from "react-router-dom";
 import "../styles/Tabs.css";
 import "../styles/Explore.css";
-import Card from "../components/Card";
 
 export default function Explore() {
   const [topGainers, setTopGainers] = useState<any>([]);
   const [topLosers, setTopLosers] = useState<any>([]);
+  const navigateTo = useNavigate();
+  const query = new URLSearchParams();
 
   const currentTab = useSelector((state: any) => {
     return state.tabs.tabs;
@@ -43,7 +46,7 @@ export default function Explore() {
         <Tabs title="Top Losers" />
       </div>
       {currentTab === "Top Gainers" ? (
-        topGainers.length > 0 ? (
+        topGainers && topGainers.length > 0 ? (
           <div className="gainers-list">
             {topGainers.map((gainer: any) => {
               return (
@@ -52,7 +55,16 @@ export default function Explore() {
                   title={gainer.ticker}
                   price={gainer.price}
                   changeAmount={gainer.change_amount}
-                  changePercentage={gainer.change_percentage}
+                  onClick={() => {
+                    query.set("price", gainer.price);
+                    query.set("changeAmount", gainer.change_amount);
+                    query.set("changePercentage", gainer.change_percentage);
+                    query.set("type", "gain");
+                    navigateTo({
+                      pathname: `/product/${gainer.ticker}`,
+                      search: query.toString(),
+                    });
+                  }}
                 />
               );
             })}
@@ -63,7 +75,7 @@ export default function Explore() {
       ) : null}
 
       {currentTab === "Top Losers" ? (
-        topLosers.length > 0 ? (
+        topLosers && topLosers.length > 0 ? (
           <div className="losers-list">
             {topLosers.map((loser: any) => {
               return (
@@ -73,6 +85,13 @@ export default function Explore() {
                   price={loser.price}
                   changeAmount={loser.change_amount}
                   changePercentage={loser.change_percentage}
+                  onClick={() => {
+                    navigateTo(`/product/${loser.ticker}`);
+                    query.set("price", loser.price);
+                    query.set("changeAmount", loser.change_amount);
+                    query.set("changePercentage", loser.change_percentage);
+                    query.set("type", "loss");
+                  }}
                 />
               );
             })}

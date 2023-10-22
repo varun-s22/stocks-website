@@ -9,7 +9,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Explore />} />
-        <Route path="/product" element={<Product />} />
+        <Route path="/product/:ticker" element={<Product />} />
       </Routes>
     </>
   );
