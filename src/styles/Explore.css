@@ -8,3 +8,16 @@
     flex-wrap: wrap;
     justify-content: space-around;
 }
+
+.loading-spinner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    animation: 1.5s linear infinite spin;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { update } from "../redux/tabs";
 import Tabs from "../components/Tabs";
 import { getGainersAndLosers } from "../utils";
-import { ImSpinner } from "react-icons/im";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import Card from "../components/Card";
 import { useNavigate } from "react-router-dom";
 import "../styles/Tabs.css";
@@ -70,7 +70,11 @@ export default function Explore() {
             })}
           </div>
         ) : (
-          <ImSpinner />
+          <div className="loading-spinner">
+            <AiOutlineLoading3Quarters
+              style={{ width: "5%", height: "5%", color: "#96591b" }}
+            />
+          </div>
         )
       ) : null}
 
@@ -84,7 +88,6 @@ export default function Explore() {
                   title={loser.ticker}
                   price={loser.price}
                   changeAmount={loser.change_amount}
-                  changePercentage={loser.change_percentage}
                   onClick={() => {
                     navigateTo(`/product/${loser.ticker}`);
                     query.set("price", loser.price);
@@ -97,7 +100,11 @@ export default function Explore() {
             })}
           </div>
         ) : (
-          <ImSpinner />
+          <div className="loading-spinner">
+            <AiOutlineLoading3Quarters
+              style={{ width: "5%", height: "5%", color: "#96591b" }}
+            />
+          </div>
         )
       ) : null}
     </div>
