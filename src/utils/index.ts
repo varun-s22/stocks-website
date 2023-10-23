@@ -20,7 +20,18 @@ export async function getGainersAndLosers() {
   const urlSearchParams = new URLSearchParams({
     function: "TOP_GAINERS_LOSERS",
   });
+  // Check if data is cached
+  const cachedGainersAndLosers = getCachedResponse("cachedGainersAndLosers");
+  if (cachedGainersAndLosers) {
+    return cachedGainersAndLosers;
+  }
+  // if not cached, fetch data and cache it
   const { top_gainers, top_losers } = await getData(urlSearchParams);
+  cacheResponse("cachedGainersAndLosers", {
+    top_gainers,
+    top_losers,
+    last_updated: new Date().getTime(),
+  });
   return { top_gainers, top_losers };
 }
 
@@ -34,7 +45,17 @@ export async function getCompanyOverview(symbol: string) {
     function: "OVERVIEW",
     symbol,
   });
+  // Check if data is cached
+  const cachedCompanyOverview = getCachedResponse("cachedCompanyOverview");
+  if (cachedCompanyOverview) {
+    return cachedCompanyOverview;
+  }
+  // if not cached, fetch data and cache it
   const data = await getData(urlSearchParams);
+  cacheResponse("cachedCompanyOverview", {
+    ...data,
+    last_updated: new Date().getTime(),
+  });
   return data;
 }
 
@@ -50,4 +71,21 @@ export async function getSearchResults(keywords: string) {
   });
   const data = await getData(urlSearchParams);
   return data.bestMatches;
+}
+
+function getCachedResponse(name: string) {
+  const cachedResponse = localStorage.getItem(name);
+  if (cachedResponse) {
+    const { last_updated, ...rest } = JSON.parse(cachedResponse);
+    const currentTime = new Date().getTime();
+    if (currentTime - last_updated > 1000 * 60 * 60 * 24) {
+      return null;
+    }
+    return rest;
+  }
+  return null;
+}
+
+function cacheResponse(name: string, data: any) {
+  localStorage.setItem(name, JSON.stringify(data));
 }
