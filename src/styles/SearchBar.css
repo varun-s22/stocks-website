@@ -30,7 +30,8 @@
     padding: 12px;
     border-top: none;
     padding-left: 22px;
-    padding-right: 22px
+    padding-right: 22px;
+    z-index: 1;
 }
 
 .search-result{

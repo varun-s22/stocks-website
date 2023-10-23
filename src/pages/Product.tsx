@@ -85,25 +85,25 @@ export default function Product() {
               </div>
             </div>
             <div className="product-others">
-              <div>
+              <div className="product-other-details">
                 Market Cap
                 <h4 className="bold-text">
                   {companyOverview.MarketCapitalization}
                 </h4>
               </div>
-              <div>
+              <div className="product-other-details">
                 P/E Ratio
                 <h4 className="bold-text">{companyOverview.PERatio}</h4>
               </div>
-              <div>
+              <div className="product-other-details">
                 Beta
                 <h4 className="bold-text">{companyOverview.Beta}</h4>
               </div>
-              <div>
+              <div className="product-other-details">
                 Dividend Yield
                 <h4 className="bold-text">{companyOverview.DividendYield}</h4>
               </div>
-              <div>
+              <div className="product-other-details">
                 Profit Margin
                 <h4 className="bold-text">{companyOverview.ProfitMargin}</h4>
               </div>
