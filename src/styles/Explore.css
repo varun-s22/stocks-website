@@ -7,6 +7,9 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    background-color: floralwhite;
+    border-radius: 20px;
+    padding: 1%;
 }
 
 .loading-spinner{

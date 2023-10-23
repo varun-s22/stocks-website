@@ -30,14 +30,14 @@ export default function Explore() {
     }
   }, []);
 
-  useEffect(() => {
-    const getData = async () => {
-      const data = await getGainersAndLosers();
-      setTopGainers(data.top_gainers);
-      setTopLosers(data.top_losers);
-    };
-    getData();
-  }, []);
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     const data = await getGainersAndLosers();
+  //     setTopGainers(data.top_gainers);
+  //     setTopLosers(data.top_losers);
+  //   };
+  //   getData();
+  // }, []);
 
   return (
     <div className="explore-page">

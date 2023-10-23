@@ -10,8 +10,9 @@
 }
 .product{
     margin:70px;
-    padding-left: 10%;
-    padding-right: 10%;
+    padding: 4% 10%;
+    border-radius: 40px;
+    background-color: floralwhite;
 }
 
 .product-description{
@@ -53,4 +54,8 @@
 
 .bold-text{
     margin: 0;
+}
+.loading-spinner{
+    margin-top: 50px;
+    height: 700px;
 }

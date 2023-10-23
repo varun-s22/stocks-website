@@ -24,9 +24,9 @@ export default function Product() {
   }, []);
 
   return (
-    <div className="product">
+    <div className="product-main">
       {companyOverview && Object.keys(companyOverview).length > 0 ? (
-        <>
+        <div className="product">
           <div className="product-segment-1">
             <div className="product-segment-2">
               <BsFacebook
@@ -109,7 +109,7 @@ export default function Product() {
               </div>
             </div>
           </div>
-        </>
+        </div>
       ) : (
         <div className="loading-spinner">
           <AiOutlineLoading3Quarters
