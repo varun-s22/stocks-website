@@ -9,6 +9,7 @@ async function getData(urlSearchParams: URLSearchParams) {
   urlSearchParams.append("apikey", API_KEY);
   const data = await fetch(BASE_URL + urlSearchParams.toString());
   const response = await data.json();
+  console.log(response);
   return response;
 }
 
@@ -27,6 +28,7 @@ export async function getGainersAndLosers() {
   }
   // if not cached, fetch data and cache it
   const { top_gainers, top_losers } = await getData(urlSearchParams);
+  console.log({ top_gainers });
   cacheResponse("cachedGainersAndLosers", {
     top_gainers,
     top_losers,
@@ -78,7 +80,10 @@ function getCachedResponse(name: string) {
   if (cachedResponse) {
     const { last_updated, ...rest } = JSON.parse(cachedResponse);
     const currentTime = new Date().getTime();
-    if (currentTime - last_updated > 1000 * 60 * 60 * 24) {
+    if (
+      currentTime - last_updated > 1000 * 60 * 60 * 24 ||
+      Object.keys(rest).length === 0
+    ) {
       return null;
     }
     return rest;
