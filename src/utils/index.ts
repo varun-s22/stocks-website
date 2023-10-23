@@ -43,7 +43,6 @@ export async function getCompanyOverview(symbol: string) {
  * @param {string} keywords
  * @returns {data}
  */
-
 export async function getSearchResults(keywords: string) {
   const urlSearchParams = new URLSearchParams({
     function: "SYMBOL_SEARCH",

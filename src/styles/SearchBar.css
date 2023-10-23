@@ -8,17 +8,40 @@
     padding: 12px;
     border-radius: 20px;
     width: 70%;
-    background-color:black;
-    opacity: 0.4;
+    background-color:#f2deb3;
     border: none;
-    color: white;
+    color: black;
     font-size: 15px;
     padding-left: 32px;
 }
 .searchbar input:focus{
-    outline: 2px solid beige;
+    outline: 2px solid goldenrod;
+    opacity: 1;
 }
 
-.searchbar input::placeholder{
-    color: white;
+.search-results{
+    position: absolute;
+    top: 30px;
+    width: 69.6%;
+    background-color: #f2deb3;
+    color: black;
+    border: 2px solid darkgoldenrod;
+    border-radius: 0 0 20px 20px;;
+    padding: 12px;
+    border-top: none;
+    padding-left: 22px;
+    padding-right: 22px
+}
+
+.search-result{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid goldenrod;
+    cursor: pointer;
+}
+
+.search-result:hover{
+    background-color: bisque;
 }

@@ -30,14 +30,14 @@ export default function Explore() {
     }
   }, []);
 
-  // useEffect(() => {
-  //   const getData = async () => {
-  //     const data = await getGainersAndLosers();
-  //     setTopGainers(data.top_gainers);
-  //     setTopLosers(data.top_losers);
-  //   };
-  //   getData();
-  // }, []);
+  useEffect(() => {
+    const getData = async () => {
+      const data = await getGainersAndLosers();
+      setTopGainers(data.top_gainers);
+      setTopLosers(data.top_losers);
+    };
+    getData();
+  }, []);
 
   return (
     <div className="explore-page">
@@ -70,7 +70,7 @@ export default function Explore() {
             })}
           </div>
         ) : (
-          <div className="loading-spinner">
+          <div className="loading-spinner loader">
             <AiOutlineLoading3Quarters
               style={{ width: "5%", height: "5%", color: "#96591b" }}
             />

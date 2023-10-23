@@ -111,7 +111,7 @@ export default function Product() {
           </div>
         </div>
       ) : (
-        <div className="loading-spinner">
+        <div className="loading-spinner loader">
           <AiOutlineLoading3Quarters
             style={{ width: "5%", height: "5%", color: "#96591b" }}
           />

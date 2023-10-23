@@ -55,7 +55,9 @@
 .bold-text{
     margin: 0;
 }
-.loading-spinner{
-    margin-top: 50px;
+.loader{
+    margin-top: 45px;
     height: 700px;
+    z-index: -1;
+    position: relative;
 }
