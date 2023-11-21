@@ -1,4 +1,4 @@
-# GrowwStocks
+# Stocks
 
 A Free, serverless and open source website, which provides the latest stock market news and information about the companies listed on the stock exchange.
 It also gives you the detailed stock prices history drawn in the form of a graph.
@@ -30,7 +30,6 @@ It also gives you the detailed stock prices history drawn in the form of a graph
 To run this project, install it locally using npm:
 
 ```
-$ cd ../GrowwStocks
 $ npm install
 $ npm run dev
 ```
